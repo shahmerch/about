@@ -535,10 +535,10 @@ const musicPlaylist = [
   { src: "assets/03 - Title Screen.mp3" },
   { src: "assets/04 - Introductions.mp3" },
   { src: "assets/05 - Littleroot Town.mp3" },
-  { src: "assets/06 - Birch Pokémon Lab.mp3" },
+  { src: "assets/06 - Birch Pokémon Lab.mp3" },
   { src: "assets/11 - Route 101.mp3" },
   { src: "assets/12 - Oldale Town.mp3" },
-  { src: "assets/13 - Pokémon Center.mp3" },
+  { src: "assets/13 - Pokémon Center.mp3" },
 ];
 const musicMetadataCache = new Map();
 let currentTrackIndex = 0;
@@ -681,22 +681,27 @@ function setNowPlaying(src, metadata) {
   }
 }
 
+function toAssetUrl(src) {
+  return encodeURI(src);
+}
+
 function loadTrack(index, { autoplay = false } = {}) {
   if (!musicAudio || !musicPlaylist.length) return;
   const total = musicPlaylist.length;
   currentTrackIndex = ((index % total) + total) % total;
   const track = musicPlaylist[currentTrackIndex];
   if (!track) return;
+  const trackUrl = toAssetUrl(track.src);
 
   setNowPlaying(track.src, null);
-  musicAudio.src = track.src;
+  musicAudio.src = trackUrl;
   musicAudio.load();
   if (musicSeek) musicSeek.value = "0";
   if (musicCurrent) musicCurrent.textContent = "0:00";
   if (musicDuration) musicDuration.textContent = "0:00";
 
-  readTrackMetadata(track.src).then((meta) => {
-    if (!musicAudio || musicAudio.src !== new URL(track.src, window.location.href).href) return;
+  readTrackMetadata(trackUrl).then((meta) => {
+    if (!musicAudio || musicAudio.src !== new URL(trackUrl, window.location.href).href) return;
     setNowPlaying(track.src, meta);
   });
 
@@ -724,6 +729,15 @@ if (musicAudio && musicSeek && musicVolume) {
 
   musicAudio.addEventListener("loadedmetadata", () => {
     if (musicDuration) musicDuration.textContent = formatTime(musicAudio.duration);
+  });
+
+  musicAudio.addEventListener("error", () => {
+    if (musicTitle) musicTitle.textContent = "Unable to load track";
+    if (musicArtist) musicArtist.textContent = "Check GitHub Pages asset path";
+    if (musicCurrent) musicCurrent.textContent = "0:00";
+    if (musicDuration) musicDuration.textContent = "0:00";
+    musicSeek.value = "0";
+    updatePlayButton();
   });
 
   musicAudio.addEventListener("timeupdate", () => {
