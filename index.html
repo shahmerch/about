@@ -265,6 +265,43 @@
       </div>
     </article>
 
+    <article class="window music-window reveal" data-window id="win-music">
+      <header class="window-titlebar" data-drag-handle>
+        <div class="window-controls">
+          <button class="window-btn close-btn" type="button" aria-label="Close"></button>
+          <button class="window-btn min-btn" type="button" aria-label="Minimize"></button>
+          <button class="window-btn max-btn" type="button" aria-label="Fullscreen"></button>
+        </div>
+        <h2 class="window-title">music</h2>
+        <div class="title-spacer"></div>
+      </header>
+      <div class="window-content music-content">
+        <audio id="musicAudio" preload="metadata"></audio>
+        <div class="music-left">
+          <div class="music-controls-row">
+            <button class="music-btn" id="musicPrev" type="button" aria-label="Previous">◀◀</button>
+            <button class="music-btn play" id="musicPlay" type="button" aria-label="Play or pause">▶</button>
+            <button class="music-btn" id="musicNext" type="button" aria-label="Next">▶▶</button>
+          </div>
+          <div class="music-volume-row">
+            <span>🔈</span>
+            <input id="musicVolume" class="music-volume" type="range" min="0" max="100" value="75" aria-label="Volume" />
+          </div>
+        </div>
+        <div class="music-right">
+          <button class="music-shuffle-btn" id="musicShuffle" type="button" aria-label="Toggle shuffle" aria-pressed="false">🔀</button>
+          <p class="music-now">Now Playing</p>
+          <p class="music-title" id="musicTitle">-</p>
+          <p class="music-track" id="musicArtist">Unknown Artist</p>
+          <div class="music-meta">
+            <span id="musicCurrent">0:00</span>
+            <input id="musicSeek" class="music-seek" type="range" min="0" max="100" value="0" aria-label="Seek" />
+            <span id="musicDuration">0:00</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
     <div class="dock-wrap">
       <nav class="dock">
         <div class="minimized-group" id="minimizedDock" aria-label="Minimized windows"></div>
