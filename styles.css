@@ -405,32 +405,11 @@ body {
   width: 31px;
   height: 18px;
   border-radius: 11px;
-  background: #fff;
+  background: #631f1f;
   top: 93px;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.left-eye { left: 33px; }
-.right-eye { right: 33px; }
-
-.brow {
-  position: absolute;
-  width: 37px;
-  height: 7px;
-  top: 80px;
-  background: #252a30;
-  border-radius: 8px;
-}
-
-.left-brow {
-  left: 30px;
-  transform: rotate(-13deg);
-}
-
-.right-brow {
-  right: 30px;
-  transform: rotate(13deg);
-}
 
 .pupil {
   position: absolute;
@@ -448,146 +427,6 @@ body {
   transition: transform 80ms linear;
 }
 
-.glasses {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.rim {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  border: 2px solid rgba(96, 102, 115, 0.85);
-  border-radius: 50%;
-  top: 83px;
-  background: radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 58%, transparent 59%);
-}
-
-.left-rim {
-  left: 24px;
-}
-
-.right-rim {
-  right: 24px;
-}
-
-.bridge {
-  position: absolute;
-  top: 104px;
-  left: 50%;
-  width: 14px;
-  height: 3px;
-  border-radius: 3px;
-  background: rgba(96, 102, 115, 0.8);
-  transform: translateX(-50%);
-}
-
-.nose {
-  position: absolute;
-  left: 50%;
-  top: 114px;
-  width: 14px;
-  height: 24px;
-  border-right: 2px solid rgba(113, 72, 52, 0.35);
-  border-bottom: 2px solid rgba(113, 72, 52, 0.35);
-  border-radius: 0 0 7px 0;
-  transform: translateX(-50%);
-}
-
-.mustache {
-  position: absolute;
-  left: 50%;
-  top: 142px;
-  width: 56px;
-  height: 14px;
-  transform: translateX(-50%);
-}
-
-.mustache::before,
-.mustache::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 28px;
-  height: 12px;
-  border-top: 5px solid #252a30;
-  border-radius: 18px;
-}
-
-.mustache::before {
-  left: 0;
-  transform: rotate(6deg);
-}
-
-.mustache::after {
-  right: 0;
-  transform: rotate(-6deg);
-}
-
-.beard {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  width: 104px;
-  height: 50px;
-  border-radius: 0 0 56px 56px;
-  border-bottom: 8px solid #2a2f36;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  transform: translateX(-50%);
-  opacity: 0.95;
-}
-
-.smile {
-  position: absolute;
-  left: 50%;
-  top: 162px;
-  width: 48px;
-  height: 15px;
-  border-bottom: 3px solid #8a4d63;
-  border-radius: 0 0 24px 24px;
-  transform: translateX(-50%);
-}
-
-.outfit {
-  position: absolute;
-  bottom: 0;
-  width: 206px;
-  height: 100px;
-}
-
-.shirt {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 88px;
-  height: 76px;
-  background: linear-gradient(180deg, #f9fbff, #eef3fa);
-  clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
-  transform: translateX(-50%);
-  border-radius: 6px;
-}
-
-.blazer {
-  position: absolute;
-  bottom: 0;
-  width: 98px;
-  height: 88px;
-  background: linear-gradient(180deg, #36445b, #263247);
-}
-
-.left-blazer {
-  left: 2px;
-  clip-path: polygon(0 0, 100% 16%, 76% 100%, 0 100%);
-  border-bottom-left-radius: 10px;
-}
-
-.right-blazer {
-  right: 2px;
-  clip-path: polygon(0 16%, 100% 0, 100% 100%, 24% 100%);
-  border-bottom-right-radius: 10px;
-}
 
 /* Image-based avatar (overrides previous CSS-drawn avatar). */
 .avatar {
@@ -621,7 +460,7 @@ body {
   width: var(--eye-w);
   height: var(--eye-h);
   border-radius: 999px;
-  background: #ffffff;
+  background: #e7e3e3;
   z-index: 2;
   pointer-events: none;
   box-shadow: inset 0 0 0 1px rgba(70, 84, 110, 0.14);
